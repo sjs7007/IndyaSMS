@@ -8,3 +8,6 @@ Dependicies :
 1. Twill 
     
   It can be installed from here : http://twill.idyll.org/
+
+
+Sent messages will be saved in a text file named "sms4log.txt".
