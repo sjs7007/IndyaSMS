@@ -1,9 +1,26 @@
 #Author : sjs7007@gmail.com
 
-from twill.commands import *
+
 import getpass #to take in password input without displaying it on screen
 import os
 import pickle
+import imp
+
+def dependencyCheckAndInstall():
+    found=True;
+    try:
+        imp.find_module('twill')
+        found = True
+    except ImportError:
+        found = False
+
+        if found == False:
+            os.system('cd /tmp;wget http://darcs.idyll.org/~t/projects/twill-0.9.tar.gz; tar -xvf twill-*; cd twill-0.9; sudo python setup.py install')
+	    print "Depencency Install restart the application"
+	    exit()
+
+dependencyCheckAndInstall()
+from twill.commands import *
 
 username=raw_input("Enter username : ")
 password=getpass.getpass("Enter password : ") #input password 
